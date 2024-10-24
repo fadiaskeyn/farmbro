@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/home', [LandingPage::class, 'index'])->name('index');
+Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
+
