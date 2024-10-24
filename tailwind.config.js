@@ -11,6 +11,14 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                customBrown: {
+                    DEFAULT: '#685832',
+                    light: '#847256',
+                    dark: '#4d4225',
+                  },
+            },
+
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 'poetsen-one': ['"Poetsen One"', 'sans-serif'],

@@ -14,16 +14,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
+    <body class="font-sans text-gray-900 antialiased sm:rounded-lg">
+        <div class="flex flex-col min-h-screen md:flex-row">
+            <!-- Bagian Gambar -->
+            <div class="w-1/2 relative bg-cover bg-center" style="background-image: url('{{ asset('img/bgayamrill.png') }}')">
             </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+            <!-- Bagian Form Login -->
+            <div class="flex flex-col justify-center items-center relative md:w-1/2">
+                <div class="hidden h-ful absolute rounded-l-3xl w-10 top-0 bottom-0 -left-9 bg-white md:block"></div>
+                <div class="w-full sm:max-w-md px-6 py-4 bg-white sm:rounded-none">
+                    <h2 class="text-2xl font-bold text-center mb-4">SELAMAT DATANG<br>SILAKAN LOGIN</h2>
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>
