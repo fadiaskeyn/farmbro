@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -21,6 +21,12 @@ export default {
 
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'poetsen-one': ['"Poetsen One"', 'sans-serif'],
+            },
+            colors: {
+                'orange-custom': '#FF7D53',
+                
+
             },
         },
     },
