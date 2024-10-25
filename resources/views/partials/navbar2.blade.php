@@ -41,7 +41,7 @@
               </ul>
 
             <!-- Login Button -->
-            <button id="navAction" class="mx-auto lg:mx-0 lg:ml-auto hover:underline bg-[#FF7D53] text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            <button id="navAction" class="mx-auto lg:mx-0 lg:ml-auto hover:underline bg-[#FF7D53] text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" onclick="window.location='{{ url('login') }}'">
                 Login
             </button>
           </div>
@@ -52,6 +52,7 @@
 
 
   <script>
+
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
       var navcontent = document.getElementById("nav-content");
@@ -109,6 +110,9 @@
   </script>
 
     <script>
+
+
+
       var navMenuDiv = document.getElementById("nav-content");
       var navMenu = document.getElementById("nav-toggle");
 

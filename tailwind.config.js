@@ -25,7 +25,11 @@ export default {
             },
             colors: {
                 'orange-custom': '#FF7D53',
-                
+                customBrown: {
+                    DEFAULT: '#685832',
+                    light: '#847256',
+                    dark: '#4d4225',
+                  },
 
             },
         },

@@ -2,7 +2,7 @@
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
     <nav id="header" class="fixed top-0 z-30 w-full text-white ">
-        <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0"> 
+        <div class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
           <div class="flex items-center">
             <a class="text-2xl font-bold text-black no-underline toggleColour hover:no-underline lg:text-4xl" href="#">
               {{-- <img src="{{ asset('image/logoputih.svg') }}" alt="Logo Putih" width="65" height="64"> --}}
@@ -40,7 +40,7 @@
               </ul>
 
             <!-- Login Button -->
-            <button id="navAction" class="mx-auto lg:mx-0 lg:ml-auto hover:underline bg-[#FF7D53] text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            <button id="navAction" class="mx-auto lg:mx-0 lg:ml-auto hover:underline bg-[#FF7D53] text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" onclick="window.location='{{ url('login') }}'">
                 Login
             </button>
           </div>

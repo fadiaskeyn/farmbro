@@ -18,5 +18,9 @@ class Landingpage extends Controller
         return view("layouts.contact");
     }
 
+
+    public function showdashboard(){
+        return view('layouts.dashboard.index');
+    }
 }
 
