@@ -45,4 +45,4 @@ require __DIR__.'/auth.php';
 Route::get('/home', [LandingPage::class, 'index'])->name('index');
 Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
 Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
-
+Route::get('/layanan', [LandingPage::class, 'layanan'])->name('layanan');

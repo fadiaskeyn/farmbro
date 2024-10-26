@@ -54,7 +54,7 @@
       <div class="flex flex-wrap justify-between place-items-start">
 
         <div class="w-full p-6 sm:w-1/2">
-          <img id="zoomImage" src="{{ asset('image/hi.jpg') }}" alt="foto" class="object-contain h-auto max-w-md mb-2">
+          <img id="zoomImage" src="{{ asset('image/hi.jpg') }}" alt="foto" class="object-cover w-full rounded-lg h-80">
         </div>
 
         <div class="w-full p-6 sm:w-1/2">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="w-full p-4 px-6 text-2xl font-bold text-brown-800">
-                    Ayam Boiler
+                    Ayam Broiler
                 </div>
                 <p class="px-6 mb-5 text-lg text-gray-800">
                     Kami menyediakan Ayam unggul untuk mendukung program pengembangbiakan Ayam Anda.
