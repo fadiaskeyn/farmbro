@@ -19,8 +19,15 @@ class Landingpage extends Controller
     }
 
 
+    public function layanan() {
+        return view("layouts.layanan");
+    }
+
+
+
     public function showdashboard(){
         return view('layouts.dashboard.index');
     }
+
 }
 

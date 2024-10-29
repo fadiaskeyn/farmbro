@@ -8,56 +8,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 
-<body class="flex flex-col h-screen bg-gray-100">
-    <!-- Include the Navbar -->
-    @include('partials.navbar2')
 
-    <div class="flex-grow">
-        <div class="px-6 py-12 mt-12 text-center">
-            <h1 class="mb-6 text-5xl font-bold font-display">THE BLOG</h1>
-            <p class="max-w-lg mx-auto"></p>
-        </div>
+<body class="flex flex-col min-h-screen bg-white">
+  @include('partials.navbar')
+  <main class="flex-grow pt-24">
+      <section class="px-8 py-12 bg-white border-b fade-in">
+          <div class="container max-w-5xl mx-auto">
+              <div class="mb-10 text-center">
+                  <h1 class="text-5xl font-bold leading-tight text-gray-800" style="font-family: 'Oswald', sans-serif;">Blogging</h1>
+                  <div class="w-24 h-1 mx-auto mt-4 rounded-t bg-gradient-to-r from-orange-500 to-yellow-500 opacity-60"></div>
+              </div>
+              <div class="flex items-start justify-start mb-8">
+                <input
+                    type="text"
+                    placeholder="Cari artikel..."
+                    class="px-4 py-2 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    style="font-family: 'Kanit', sans-serif;"
+                >
+                <button
+                    class="px-4 py-2 ml-2 font-bold text-white transition duration-300 ease-in-out bg-orange-500 rounded-lg hover:bg-orange-600"
+                    style="font-family: 'Kanit', sans-serif;"
+                >
+                    Cari
+                </button>
+              </div>
 
-        <!-- Blog Posts Section -->
-        <div class="container grid grid-cols-1 gap-12 px-6 pt-12 pb-24 mx-auto lg:grid-cols-2">
-            {{-- @foreach ($blogs as $post)
-                <div>
-                    <!-- Image -->
-                    <a href="{{ url('/blog', $post->slug) }}">
-                        <img src="{{ asset('storage/' . $post->image) }}" class="object-cover w-full h-52 md:h-64 lg:h-96 xl:h-64" alt="{{ $post->title }}" />
-                    </a>
+              {{-- <div class="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
+                  @foreach($blogs as $blog)
+                  <div class="overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl">
+                      <img src="{{ asset('image_path/' . $blog->image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-48">
+                      <div class="p-6">
+                          <p class="mb-2 text-sm text-gray-500">{{ $blog->category }} / {{ $blog->subcategory }}</p>
+                          <h2 class="mb-2 text-xl font-bold text-gray-800">{{ $blog->title }}</h2>
+                          <p class="mb-4 text-gray-600">{{ Str::limit($blog->content, 100) }}</p>
+                          <a href="{{ route('blog.show', $blog->id) }}" class="inline-flex items-center font-semibold text-green-600 hover:underline">
+                              Baca Selengkapnya <span class="ml-1">→</span>
+                          </a>
+                      </div>
+                  </div>
+                  @endforeach
+              </div> --}}
+          </div>
+      </section>
+  </main>
 
-                    <!-- Blog Content -->
-                    <div class="p-8 bg-gray-50">
-                        <!-- Date -->
-                        <div class="text-xs font-semibold text-gray-600 uppercase">{{ $post->created_at->format('M d, Y') }}</div>
-
-                        <!-- Title -->
-                        <h2 class="max-w-sm mt-3 mb-6 text-3xl leading-tight text-black font-display">
-                            {{ $post->title ?? 'Untitled' }}
-                        </h2>
-
-                        <!-- Description -->
-                        @if ($post->description)
-                            <p class="max-w-md mt-4">{{ $post->description }}</p>
-                        @endif
-
-                        <!-- Read More Link -->
-                        <a href="{{ url('/blog', $post->slug) }}" class="flex items-center mt-6 text-sm font-semibold text-black uppercase">
-                            Read article
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            @endforeach --}}
-        </div>
-
-    </div>
-
-    <!-- Include the Footer -->
-    @include('partials.footer')
+  <!-- Footer -->
+  @include('partials.footer')
 </body>
+
+
 </html>
+
 

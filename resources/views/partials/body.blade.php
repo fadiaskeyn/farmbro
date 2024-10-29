@@ -14,7 +14,6 @@
           Mulai Sekarang
         </button>
       </div>
-
       <div class="w-full py-6 text-center md:w-3/5">
       </div>
     </div>
@@ -43,7 +42,7 @@
 
 
 
-<section class="px-8 py-8 bg-white border-b">
+<section class="px-8 py-8 bg-white border-b fade-in">
     <div class="container m-8 mx-auto">
       <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
         Tentang Kami
@@ -54,7 +53,7 @@
       <div class="flex flex-wrap justify-between place-items-start">
 
         <div class="w-full p-6 sm:w-1/2">
-          <img id="zoomImage" src="{{ asset('image/hi.jpg') }}" alt="foto" class="object-contain h-auto max-w-md mb-2">
+          <img id="zoomImage" src="{{ asset('image/hi.jpg') }}" alt="foto" class="object-cover w-full rounded-lg h-80">
         </div>
 
         <div class="w-full p-6 sm:w-1/2">
@@ -74,7 +73,7 @@
 
 
 
-  <section class="py-8 bg-yellow-800 border-b">
+  <section class="py-8 bg-yellow-800 border-b fade-in">
     <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-2xl font-bold leading-tight text-center text-white animate-on-scroll">
           Layanan Farmbro
@@ -82,8 +81,6 @@
         <div class="w-full mb-4 animate-on-scroll">
           <div class="w-64 h-1 py-0 mx-auto my-0 rounded-t opacity-100 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
         </div>
-
-        <!-- Gambar 1 -->
         <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 animate-on-scroll">
             <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
@@ -108,8 +105,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Gambar 2 -->
         <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 animate-on-scroll">
             <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
@@ -119,7 +114,7 @@
                     </div>
                 </div>
                 <div class="w-full p-4 px-6 text-2xl font-bold text-brown-800">
-                    Ayam Boiler
+                    Ayam Broiler
                 </div>
                 <p class="px-6 mb-5 text-lg text-gray-800">
                     Kami menyediakan Ayam unggul untuk mendukung program pengembangbiakan Ayam Anda.
@@ -134,8 +129,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Gambar 3 -->
         <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3 animate-on-scroll">
             <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
                 <a href="#" class="flex flex-wrap no-underline hover:no-underline">
@@ -163,7 +156,7 @@
     </div>
 </section>
 
-    <section class="py-8 border-b">
+    <section class="py-8 border-b fade-in">
         <div class="container flex flex-wrap pt-4 pb-12 mx-auto">
             <h1 class="w-full my-2 text-2xl font-bold leading-tight text-center text-black">
                 Read Post
@@ -191,7 +184,7 @@
 
 
 
-    <section class="py-8 border-b">
+    <section class="py-8 border-b fade-in">
       <div class="container flex flex-wrap justify-center pt-4 pb-12 mx-auto">
         <h1 class="w-full my-2 text-2xl font-bold leading-tight text-center text-black">
           Apa kata mereka tentang Farmbro ?
@@ -227,8 +220,6 @@
               </div>
           </div>
         </div>
-
-        <!-- Comment 2 -->
         <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
             <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
               <a href="#" class="flex flex-wrap no-underline hover:no-underline">
@@ -255,8 +246,6 @@
                 </div>
             </div>
           </div>
-
-        <!-- Comment 3 -->
         <div class="flex flex-col flex-grow flex-shrink w-full p-6 md:w-1/3">
             <div class="flex-1 overflow-hidden bg-white rounded-t rounded-b-none shadow">
               <a href="#" class="flex flex-wrap no-underline hover:no-underline">
@@ -292,7 +281,7 @@
     </section>
 
 
-        <section class="container py-6 mx-auto mb-12 text-center">
+    <section class="container py-6 mx-auto mb-12 text-center fade-in">
             <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-yellow-800">
             Siap memulai kemitraan yang menguntungkan ?
             </h1>
@@ -302,7 +291,7 @@
             <h3 class="my-4 text-3xl leading-tight" style="font-family: 'Kanit', sans-serif;">
             Hubungi Kami Sekarang
             </h3>
-        </section>
+    </section>
 
 
 
@@ -390,6 +379,18 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 </style>
 
 <script>
@@ -408,15 +409,13 @@
 });
 
 const images = document.querySelectorAll('img');
-
-// Menambahkan event listener untuk efek hover pada setiap gambar
 images.forEach((image) => {
     image.addEventListener('mouseover', () => {
-        image.style.filter = 'brightness(60%)';  // Mengurangi brightness saat hover
+        image.style.filter = 'brightness(60%)';
     });
 
     image.addEventListener('mouseout', () => {
-        image.style.filter = 'brightness(100%)'; // Kembali normal saat kursor keluar
+        image.style.filter = 'brightness(100%)'; ar
     });
 });
 
@@ -430,9 +429,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     }, {
-      threshold: 0.2 // 20% of the element must be visible before animation triggers
+      threshold: 0.2
     });
 
     animateElements.forEach(el => observer.observe(el));
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top < window.innerHeight &&
+        rect.bottom >= 0
+      );
+    }
+    const fadeElements = document.querySelectorAll('.fade-in');
+    function handleScroll() {
+      fadeElements.forEach(element => {
+        if (isInViewport(element)) {
+          element.classList.add("show");
+        }
+      });
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
   });
 </script>

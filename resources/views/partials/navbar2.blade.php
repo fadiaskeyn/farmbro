@@ -33,10 +33,10 @@
                     <a class="inline-block px-4 py-2 text-xl font-bold text-black no-underline transition duration-300 font-poetsen-one hover:text-gray-500" href="{{ route('contact') }}">Tentang</a>
                  </li>
                 <li class="mr-3">
-                  <a class="inline-block px-4 py-2 text-xl font-bold text-black no-underline transition duration-300 font-poetsen-one hover:text-gray-500" href="#">Layanan</a>
+                  <a class="inline-block px-4 py-2 text-xl font-bold text-black no-underline transition duration-300 font-poetsen-one hover:text-gray-500" href="{{ route('layanan') }}">Layanan</a>
                 </li>
                 <li class="mr-3">
-                  <a class="inline-block px-4 py-2 text-xl font-bold text-black no-underline transition duration-300 font-poetsen-one hover:text-gray-500" href="#">Blog</a>
+                  <a class="inline-block px-4 py-2 text-xl font-bold text-black no-underline transition duration-300 font-poetsen-one hover:text-gray-500" href="{{ route('blog') }}">Blog</a>
                 </li>
               </ul>
 
