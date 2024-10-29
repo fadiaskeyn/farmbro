@@ -29,11 +29,13 @@
                   <a class="inline-block px-4 py-2 text-xl font-bold no-underline transition duration-300 text-White font-poetsen-one hover:text-gray-300" href="{{ route('layanan') }}">Layanan</a>
                 </li>
                 <li class="mr-3">
-                  <a class="inline-block px-4 py-2 text-xl font-bold no-underline transition duration-300 text-White font-poetsen-one hover:text-gray-300" href="#">Blog</a>
+                  <a class="inline-block px-4 py-2 text-xl font-bold no-underline transition duration-300 text-White font-poetsen-one hover:text-gray-300" href="{{ route('blog') }}">Blog</a>
                 </li>
               </ul>
 
-            <button id="navAction" class="px-8 py-4 mx-auto mt-4 font-bold text-black transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 lg:ml-auto hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105">
+
+            <button id="navAction" class="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 lg:ml-auto hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105" onclick="window.location='{{ url('login') }}'">
+
                 Login
             </button>
           </div>
