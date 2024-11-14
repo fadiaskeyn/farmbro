@@ -22,21 +22,27 @@
                 </div>
                 <ul class="mt-4">
                     <li class="mb-4">
-                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+                        <a href="{{ route('dashboard') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('svg/dashboard.svg') }}" alt="Dashboard Icon">
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+                        <a href="{{ route('user.index') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('svg/pekerja.svg') }}" alt="Pekerja Icon">
                             <span>Pekerja</span>
                         </a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
-                            <img class="w-6 h-6 mr-2" src="{{ asset('svg/laporan.svg    ') }}" alt="Laporan Icon">
+                            <img class="w-6 h-6 mr-2" src="{{ asset('image/chart.svg') }}" alt="Laporan Icon">
                             <span>Laporan</span>
+                        </a>
+                    </li>
+                     <li class="mb-4">
+                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+                            <img class="w-6 h-6 mr-2" src="{{ asset('image/blog.svg') }}" alt="Laporan Icon">
+                            <span>Blog</span>
                         </a>
                     </li>
                 </ul>
@@ -61,19 +67,19 @@
                     <!-- Statistic Cards -->
                     <div class="grid grid-cols-12 gap-4">
                         <!-- Total Ayam Mati -->
-                        <div class="col-span-3 bg-gray-200 p-4">
-                            <p class="text-red-500 font-semibold">Total Ayam</p>
-                            <p class="text-4xl font-bold text-red-600 mt-2">80</p>
+                        <div class="col-span-3 bg-red-100 p-4 rounded-lg">
+                            <p class="text-red-700 font-semibold">Total Ayam</p>
+                            <p class="text-4xl font-bold text-red-700 mt-2">80</p>
                         </div>
 
                         <!-- Suhu -->
-                        <div class="col-span-3 bg-red-700 p-4">
+                        <div class="col-span-3 bg-lime-50 p-4 rounded-lg">
                             <p class="text-green-500 font-semibold">Suhu</p>
                             <p class="text-4xl font-bold text-green-600 mt-2">13%</p>
                         </div>
 
                         <!-- Kelembapan -->
-                        <div class="col-span-3 bg-blue-100 p-6 rounded-lg shadow-md">
+                        <div class="col-span-3 bg-blue-50 p-6 rounded-lg shadow-lg">
                             <p class="text-blue-500 font-semibold">Kelembapan</p>
                             <p class="text-4xl font-bold text-blue-600 mt-2">20%</p>
                         </div>
@@ -84,9 +90,16 @@
                             <p class="text-4xl font-bold text-green-600 mt-2">200</p>
                         </div>
                     </div>
-                    <div>
-                        <canvas id="myChart"></canvas>
+
+                    <div class="container mx-auto py-10 shadow-md ">
+                        <div class="rounded-lg bg-white px-5 shadow-inner">
+                          <div>
+                            <canvas id="myChart"></canvas>
+                          </div>
+                        </div>
                       </div>
+
+
                     </main>
                 </div>
                 <div class="mt-4 mb-4 text-gray-600 flex justify-between mx-8">
@@ -96,29 +109,54 @@
             </div>
         </div>
     </body>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        import Chart from 'chart.js/auto';
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green'],
+            datasets: [{
+              label: 'Total Ayam',
+              data: [12, 19, 3, 5, 2],
+              backgroundColor: [
+                'rgba(201, 203, 207, 0.5)',
+                'rgba(201, 203, 207, 0.5)',
+                'rgba(201, 203, 207, 0.5)',
+                'rgba(201, 203, 207, 0.5)',
+                'rgba(201, 203, 207, 0.5)',
+                'rgba(201, 203, 207, 0.5)'
+              ],
+              hoverBackgroundColor: true,
+              hoverBorderRadius: 10,
+              borderColor: [
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  display: false
+                }
+              },
+              x: {
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        });
+    </script>
 
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                      <script>
-                        const ctx = document.getElementById('myChart');
-
-                        new Chart(ctx, {
-                          type: 'bar',
-                          data: {
-                            labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
-                            datasets: [{
-                              label: '# of Votes',
-                              data: [5, 5, 5, 5, 2, 3],
-                              borderWidth: 1
-                            }]
-                          },
-                          options: {
-                            scales: {
-                              y: {
-                                beginAtZero: true
-                              }
-                            }
-                          }
-                        });
-                      </script>
                       </html>

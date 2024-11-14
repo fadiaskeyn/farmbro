@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class Landingpage extends Controller
@@ -11,7 +12,8 @@ class Landingpage extends Controller
     }
 
     public function bloging(){
-        return view("layouts.blog");
+        $data = Blog::all();
+        return view("layouts.blog", compact('data'));
     }
 
     public function contact(){

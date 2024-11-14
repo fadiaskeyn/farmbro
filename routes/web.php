@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingPage;
+use App\Http\Controllers\Landingpage;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +21,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', [LandingPage::class, 'index'])->name('index');
-Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
-Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
+Route::get('/home', [Landingpage::class, 'index'])->name('index');
+Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
 
 
 
@@ -38,17 +38,15 @@ Route::middleware('auth')->group(function () {
 
 route::middleware('auth')->group(function(){
     Route::get('/user', [UserController::class,'index'])->name('user.index');
-    Route::get('/dashboard', [LandingPage::class,'showdashboard'])->name('dashboard');
+    Route::get('/dashboard', [Landingpage::class,'showdashboard'])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
 
 
 
-Route::get('/home', [LandingPage::class, 'index'])->name('index');
-Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
-Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
-Route::get('/layanan', [LandingPage::class, 'layanan'])->name('layanan');
+Route::get('/home', [Landingpage::class, 'index'])->name('index');
+Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
+Route::get('/layanan', [Landingpage::class, 'layanan'])->name('layanan');
 
-// =======
-// >>>>>>> 5fd7b7989ff3f2dbf58596fd6d71c0c791c42e88

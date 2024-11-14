@@ -12,4 +12,14 @@ class UserController extends Controller
         $user = User::all();
         return view('layouts.worker.index',compact('user'));
     }
+
+    public function store(Request $request){
+        try {
+            $request->validate([
+               
+            ]);
+        } catch (\Exception $e) {
+
+        }
+    }
 }
