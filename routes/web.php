@@ -25,6 +25,7 @@ Route::get('/home', [Landingpage::class, 'index'])->name('index');
 Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
 Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
 
+Route::resource('worker',UserController::class);
 
 
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
     public function index()
     {
         $user = User::all();
@@ -15,11 +16,18 @@ class UserController extends Controller
 
     public function store(Request $request){
         try {
-            $request->validate([
-               
+            $users = $request->validate([
+               "name" => "required",
+               "email" => "required",
+               "phone" => "required"
             ]);
+          User::create([
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+           ]);
         } catch (\Exception $e) {
-
+            dd($e->getMessage());
         }
     }
 }
