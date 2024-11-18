@@ -20,6 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
+Route::put('/updateprofile', [AuthApi::class,'updateprofile']);
+Route::post('/logout', [AuthApi::class,'logout']);
 });
+
 Route::post('/login', [AuthApi::class,'login']);
+
 
