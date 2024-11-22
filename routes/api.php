@@ -26,3 +26,4 @@ Route::post('/logout', [AuthApiController::class,'logout']);
 
 Route::get('/gas', [GasApiController::class,'dashboard']);
 Route::post('/gas/store', [GasApiController::class, 'store']);
+Route::get('/average',[GasApiController::class,'average']);
