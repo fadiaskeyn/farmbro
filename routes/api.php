@@ -1,8 +1,8 @@
 <?php
-
-use App\Http\Controllers\api\AuthApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\GasApiController;
+use App\Http\Controllers\api\AuthApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
-Route::put('/updateprofile', [AuthApi::class,'updateprofile']);
-Route::post('/logout', [AuthApi::class,'logout']);
+Route::put('/updateprofile', [AuthApiController::class,'updateprofile']);
+Route::post('/logout', [AuthApiController::class,'logout']);
 });
 
-Route::post('/login', [AuthApi::class,'login']);
-
-
+Route::get('/gas', [GasApiController::class,'dashboard']);
+Route::post('/gas/store', [GasApiController::class, 'store']);

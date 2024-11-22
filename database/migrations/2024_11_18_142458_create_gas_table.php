@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('airs', function (Blueprint $table) {
+        Schema::create('gases', function (Blueprint $table) {
             $table->id();
             $table->double('humidity',5,2);
             $table->double('temperature',5,2);

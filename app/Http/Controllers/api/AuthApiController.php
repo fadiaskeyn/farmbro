@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class AuthApi extends Controller
+class AuthApiController extends Controller
 {
     public function login(Request $request)
 {
@@ -34,6 +34,7 @@ class AuthApi extends Controller
         "message" => "Data yang anda masukan salah, silahkan periksa kembali"
     ]);
 }
+
 
 
 public function updateprofile(Request $request)
