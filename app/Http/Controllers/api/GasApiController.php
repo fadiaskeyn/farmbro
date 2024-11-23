@@ -20,9 +20,9 @@ class GasApiController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            "humidity" => "required",
-            "temperature" => "required",
-            "amonia" => "required"
+            "humidity" => "required|numeric",
+            "temperature" => "required|numeric",
+            "amonia" => "required|numeric"
         ]);
         $gas = Gas::create([
             "humidity" => $request->humidity,
@@ -61,5 +61,7 @@ class GasApiController extends Controller
             'data' => $data
         ]);
     }
+
+
 
 }
