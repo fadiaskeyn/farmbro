@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingPage;
+use App\Http\Controllers\Landingpage;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', [LandingPage::class, 'index'])->name('index');
-Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
-Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
+Route::get('/home', [Landingpage::class, 'index'])->name('index');
+Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
 
+Route::resource('worker',UserController::class);
 
 
 
@@ -38,15 +40,23 @@ Route::middleware('auth')->group(function () {
 
 route::middleware('auth')->group(function(){
     Route::get('/user', [UserController::class,'index'])->name('user.index');
-    Route::get('/dashboard', [LandingPage::class,'showdashboard'])->name('dashboard');
+    Route::get('/dashboard', [Landingpage::class,'showdashboard'])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
 
+Route::resource('/bloging', BlogController::class);
+
+Route::get('/home', [Landingpage::class, 'index'])->name('index');
+Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
+Route::get('/layanan', [Landingpage::class, 'layanan'])->name('layanan');
+Route::get('/blog/{id}', [Landingpage::class, 'show'])->name('blog.show');
 
 
 Route::get('/home', [LandingPage::class, 'index'])->name('index');
 Route::get('/blog', [LandingPage::class, 'bloging']) ->name('blog');
 Route::get('/contact', [LandingPage::class, 'contact']) ->name('contact');
 Route::get('/layanan', [LandingPage::class, 'layanan'])->name('layanan');
+
 

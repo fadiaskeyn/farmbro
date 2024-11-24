@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Blog;
+use App\Models\BlogSeeder;
+use Database\Seeders\BlogSeeder as SeedersBlogSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,8 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Create 10 blog entries
 
+        $this->call(SeedersBlogSeeder::class);
+        // Create an admin user
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@mail.com',
@@ -24,4 +30,5 @@ class DatabaseSeeder extends Seeder
             'photo' => 'pp.jpg'
         ]);
     }
+
 }

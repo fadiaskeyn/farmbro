@@ -1,18 +1,17 @@
 <x-app-layout>
-
     <div class="container mx-auto p-6">
         <div class="flex justify-between items-center mb-4">
           <div class="relative w-1/3">
             <input
               type="text"
               placeholder="Search"
-              class="w-full px-10 py-2 text-gray-700 bg-gray-200 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+              class="w-full px-10 rounded-md py-2 text-gray-700 bg-gray-200 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
               />
             <div class="absolute inset-y-0 left-5 flex items-center pr-3">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
-          <button class="px-4 py-2 text-white bg-green-400 rounded-lg hover:bg-green-500">
+          <button data-modal-target="modal-worker" data-modal-toggle="modal-worker" class="px-4 py-2 text-white bg-green-400 rounded-lg hover:bg-green-500">
             Tambah data
           </button>
         </div>
@@ -57,11 +56,14 @@
                         <button class="px-4 py-1 text-xs text-white bg-red-400 rounded hover:bg-red-500">Hapus</button>
                     </div>
                 </td>
-                @endforeach
               </tr>
               <!-- Repeat for other rows -->
+              @endforeach
             </tbody>
           </table>
         </div>
       </div>
+      @include('layouts.worker.create_modal')
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </x-app-layout>
