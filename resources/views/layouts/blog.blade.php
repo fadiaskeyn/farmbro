@@ -55,8 +55,6 @@
                 @endforeach
             </div>
 
-
-
           </div>
       </section>
   </main>

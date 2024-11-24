@@ -14,6 +14,7 @@ class Landingpage extends Controller
         return view ("layouts.LandingPage");
     }
 
+
     public function bloging()
     {
         $data = Blog::all()->map(function ($blog) {

@@ -40,6 +40,7 @@
                         </a>
                     </li>
                      <li class="mb-4">
+
                         <a href="{{ route ('bloging.index')}}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('image/blog.svg') }}" alt="Laporan Icon">
                             <span>Blog</span>
@@ -67,6 +68,7 @@
                     <!-- Statistic Cards -->
                     <div class="grid grid-cols-12 gap-4">
                         <!-- Total Ayam Mati -->
+
                         <div class="col-span-3 p-4 bg-red-100 rounded-lg">
                             <p class="font-semibold text-red-700">Total Ayam</p>
                             <p class="mt-2 text-4xl font-bold text-red-700">80</p>
@@ -82,6 +84,7 @@
                         <div class="col-span-3 p-6 rounded-lg shadow-lg bg-blue-50">
                             <p class="font-semibold text-blue-500">Kelembapan</p>
                             <p class="mt-2 text-4xl font-bold text-blue-600">20%</p>
+
                         </div>
 
                         <!-- Gas Amonia -->
@@ -90,9 +93,9 @@
                             <p class="mt-2 text-4xl font-bold text-green-600">200</p>
                         </div>
                     </div>
-
                     <div class="container py-10 mx-auto shadow-md ">
                         <div class="px-5 bg-white rounded-lg shadow-inner">
+
                           <div>
                             <canvas id="myChart"></canvas>
                           </div>

@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Chick extends Model
 {
     use HasFactory;
-
     public $fillable = [
-        "title",
-        "description",
-        "images",
-        "create_at"
-
+        "amount",
+        "chick_density",
     ];
 }

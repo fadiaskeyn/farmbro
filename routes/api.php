@@ -1,8 +1,9 @@
 <?php
-
-use App\Http\Controllers\api\AuthApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\GasApiController;
+use App\Http\Controllers\api\AuthApiController;
+use App\Http\Controllers\api\ChickController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
+Route::put('/updateprofile', [AuthApiController::class,'updateprofile']);
+Route::post('/logout', [AuthApiController::class,'logout']);
 });
-Route::post('/login', [AuthApi::class,'login']);
 
+Route::get('/gas', [GasApiController::class,'dashboard']);
+Route::post('/gas/store', [GasApiController::class, 'store']);
+Route::get('/average',[GasApiController::class,'average']);
+Route::post('/chick/store',[ChickController::class,'store']);
+Route::get('/chick', [ChickController::class,'index']);

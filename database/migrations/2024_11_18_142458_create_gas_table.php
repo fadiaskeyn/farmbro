@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function(Blueprint $table){
+        Schema::create('gases', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('images')->nullable();
+            $table->double('humidity',5,2);
+            $table->double('temperature',5,2);
+            $table->double('amonia',5,2);
             $table->timestamps();
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('gas');
     }
 };
