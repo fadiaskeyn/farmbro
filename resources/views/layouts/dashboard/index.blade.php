@@ -14,9 +14,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen min-w-full flex">
+        <div class="flex min-w-full min-h-screen">
             <!-- Sidebar -->
-            <div class="w-56 bg-customBrown text-white min-h-screen">
+            <div class="w-56 min-h-screen text-white bg-customBrown">
                 <div class="p-4">
                     <h1 class="text-2xl font-bold">FARMBRO</h1>
                 </div>
@@ -40,7 +40,8 @@
                         </a>
                     </li>
                      <li class="mb-4">
-                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+
+                        <a href="{{ route ('bloging.index')}}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('image/blog.svg') }}" alt="Laporan Icon">
                             <span>Blog</span>
                         </a>
@@ -51,12 +52,12 @@
             <!-- Main content -->
             <div class="flex-1 bg-gray-100">
                 @include('layouts.navigation')
-                <div class="container mx-auto p-6 h-auto bg-white rounded-lg shadow-lg">
+                <div class="container h-auto p-6 mx-auto bg-white rounded-lg shadow-lg">
 
                     <header class="bg-white shadow">
                 <!-- Page Heading -->
                 @if (isset($header))
-                        <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+                        <div class="px-4 py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
                     </header>
@@ -67,32 +68,34 @@
                     <!-- Statistic Cards -->
                     <div class="grid grid-cols-12 gap-4">
                         <!-- Total Ayam Mati -->
-                        <div class="col-span-3 bg-red-100 p-4 rounded-lg">
-                            <p class="text-red-700 font-semibold">Total Ayam</p>
-                            <p class="text-4xl font-bold text-red-700 mt-2">80</p>
+
+                        <div class="col-span-3 p-4 bg-red-100 rounded-lg">
+                            <p class="font-semibold text-red-700">Total Ayam</p>
+                            <p class="mt-2 text-4xl font-bold text-red-700">80</p>
                         </div>
 
                         <!-- Suhu -->
-                        <div class="col-span-3 bg-lime-50 p-4 rounded-lg">
-                            <p class="text-green-500 font-semibold">Suhu</p>
-                            <p class="text-4xl font-bold text-green-600 mt-2">13%</p>
+                        <div class="col-span-3 p-4 rounded-lg bg-lime-50">
+                            <p class="font-semibold text-green-500">Suhu</p>
+                            <p class="mt-2 text-4xl font-bold text-green-600">13%</p>
                         </div>
 
                         <!-- Kelembapan -->
-                        <div class="col-span-3 bg-blue-50 p-6 rounded-lg shadow-lg">
-                            <p class="text-blue-500 font-semibold">Kelembapan</p>
-                            <p class="text-4xl font-bold text-blue-600 mt-2">20%</p>
+                        <div class="col-span-3 p-6 rounded-lg shadow-lg bg-blue-50">
+                            <p class="font-semibold text-blue-500">Kelembapan</p>
+                            <p class="mt-2 text-4xl font-bold text-blue-600">20%</p>
+
                         </div>
 
                         <!-- Gas Amonia -->
-                        <div class="col-span-3 bg-green-100 p-6 rounded-lg shadow-md">
-                            <p class="text-green-500 font-semibold">Gas Amonia</p>
-                            <p class="text-4xl font-bold text-green-600 mt-2">200</p>
+                        <div class="col-span-3 p-6 bg-green-100 rounded-lg shadow-md">
+                            <p class="font-semibold text-green-500">Gas Amonia</p>
+                            <p class="mt-2 text-4xl font-bold text-green-600">200</p>
                         </div>
                     </div>
+                    <div class="container py-10 mx-auto shadow-md ">
+                        <div class="px-5 bg-white rounded-lg shadow-inner">
 
-                    <div class="container mx-auto py-10 shadow-md ">
-                        <div class="rounded-lg bg-white px-5 shadow-inner">
                           <div>
                             <canvas id="myChart"></canvas>
                           </div>
@@ -102,7 +105,7 @@
 
                     </main>
                 </div>
-                <div class="mt-4 mb-4 text-gray-600 flex justify-between mx-8">
+                <div class="flex justify-between mx-8 mt-4 mb-4 text-gray-600">
                     <span>FARMBRO</span>
                     <span>PETERNAKAN AYAM BROILER</span>
                   </div>

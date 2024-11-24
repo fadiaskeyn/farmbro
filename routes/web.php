@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landingpage;
 
@@ -44,6 +45,13 @@ route::middleware('auth')->group(function(){
 
 require __DIR__.'/auth.php';
 
+Route::resource('/bloging', BlogController::class);
+
+Route::get('/home', [Landingpage::class, 'index'])->name('index');
+Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');
+Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
+Route::get('/layanan', [Landingpage::class, 'layanan'])->name('layanan');
+Route::get('/blog/{id}', [Landingpage::class, 'show'])->name('blog.show');
 
 
 Route::get('/home', [Landingpage::class, 'index'])->name('index');

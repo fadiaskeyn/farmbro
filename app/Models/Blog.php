@@ -12,6 +12,8 @@ class Blog extends Model
     public $fillable = [
         "title",
         "description",
-        "images"
+        "images",
+        "create_at"
+
     ];
 }

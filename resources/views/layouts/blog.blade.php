@@ -37,25 +37,28 @@
               </div>
 
               <div class="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-                  @foreach($data as $blog)
-                  <div class="overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl">
-                      <img src="{{ asset($blog->images) }}" alt="{{ $blog->images }}" class="object-cover w-full h-48">
-                      <div class="p-6">
-                          <p class="mb-2 text-xl font-bold text-black">{{ $blog->title }}</p>
-                          <h2 class="mb-2 text-ml font-serif text-gray-800">{{ $blog->description }}</h2>
-                          <p class="mb-4 text-gray-600"></p>
-                          <a href="" class="inline-flex items-center font-semibold text-green-600 hover:underline">
-                              Baca Selengkapnya <span class="ml-1">→</span>
-                          </a>
-                      </div>
-                  </div>
-                  @endforeach
-              </div>
+                @foreach($data as $blog)
+                    <div class="overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl">
+                        <img src="{{ asset('storage/' . $blog->images) }}" alt="{{ $blog->title }}" class="object-cover w-full h-48">
+                        <div class="p-6">
+                            <p class="mb-2 text-xl font-bold text-black">
+                                {{ $blog->title }}
+                            </p>
+                            <p class="mb-4 text-gray-800">
+                                {{ $blog->description }}
+                            </p>
+                            <a href="{{ route('blog.show', $blog->id) }}" class="inline-flex items-center font-semibold text-green-600 hover:underline">
+                                Baca Selengkapnya <span class="ml-1">→</span>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
           </div>
       </section>
   </main>
 
-  <!-- Footer -->
   @include('partials.footer')
 </body>
 
