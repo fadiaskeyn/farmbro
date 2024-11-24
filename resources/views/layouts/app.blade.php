@@ -20,20 +20,20 @@
                 <div class="p-4">
                     <h1 class="text-2xl font-bold">FARMBRO</h1>
                 </div>
-                <ul class="mt-4">
-                    <li class="mb-4">
+                <ul class="mt-4 space-y-4">
+                    <li>
                         <a href="{{ route('dashboard') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('svg/dashboard.svg') }}" alt="Dashboard Icon">
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="mb-4">
+                    <li>
                         <a href="{{ route('user.index') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('svg/pekerja.svg') }}" alt="Pekerja Icon">
                             <span>Pekerja</span>
                         </a>
                     </li>
-                    <li class="mb-4">
+                    <li>
                         <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('image/chart.svg') }}" alt="Laporan Icon">
                             <span>Laporan</span>
