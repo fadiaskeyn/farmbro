@@ -5,6 +5,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landingpage;
+use App\Http\Controllers\GasController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +50,8 @@ route::middleware('auth')->group(function(){
 require __DIR__.'/auth.php';
 
 Route::resource('/bloging', BlogController::class);
+
+Route::get('/dashboard', [GasController::class, 'index'])->name('dashboard');
 
 Route::get('/home', [Landingpage::class, 'index'])->name('index');
 Route::get('/blog', [Landingpage::class, 'bloging']) ->name('blog');

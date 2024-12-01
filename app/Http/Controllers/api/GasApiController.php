@@ -39,10 +39,7 @@ class GasApiController extends Controller
 
     public function average()
     {
-        // Menentukan waktu 12 jam terakhir
         $twelveHoursAgo = Carbon::now()->subHours(12);
-
-        // Ambil data dalam 12 jam terakhir, grup per jam, dan hitung rata-rata
         $data = DB::table('gases')
             ->select(
                 DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d %H:00:00") as hour'), // Grup berdasarkan jam

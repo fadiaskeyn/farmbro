@@ -45,7 +45,7 @@
                                 {{ $blog->title }}
                             </p>
                             <p class="mb-4 text-gray-800">
-                                {{ $blog->description }}
+                                {!! $blog->description !!}
                             </p>
                             <a href="{{ route('blog.show', $blog->id) }}" class="inline-flex items-center font-semibold text-green-600 hover:underline">
                                 Baca Selengkapnya <span class="ml-1">→</span>
@@ -54,9 +54,6 @@
                     </div>
                 @endforeach
             </div>
-
-
-
           </div>
       </section>
   </main>

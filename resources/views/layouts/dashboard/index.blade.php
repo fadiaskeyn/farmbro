@@ -47,8 +47,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Main content -->
             <div class="flex-1 bg-gray-100">
                 @include('layouts.navigation')
                 <div class="container h-auto p-6 mx-auto bg-white rounded-lg shadow-lg">
@@ -62,37 +60,36 @@
                     </header>
                 @endif
 
-                <!-- Page Content -->
                 <main>
-                    <!-- Statistic Cards -->
                     <div class="grid grid-cols-12 gap-4">
-                        <!-- Total Ayam Mati -->
-                        <div class="col-span-3 p-4 bg-red-100 rounded-lg">
-                            <p class="font-semibold text-red-700">Total Ayam</p>
-                            <p class="mt-2 text-4xl font-bold text-red-700">80</p>
-                        </div>
+                        @if (isset($chickData) && !empty($chickData))
+                            <div class="col-span-3 p-4 bg-red-100 rounded-lg">
+                                <p class="font-semibold text-red-700">Total Ayam</p>
+                                <p class="mt-2 text-4xl font-bold text-red-700">{{ $chickData['amount'] ?? 'N/A' }}</p>
+                            </div>
+                        @endif
 
-                        <!-- Suhu -->
+                        @if (isset($gasData) && !empty($gasData))
                         <div class="col-span-3 p-4 rounded-lg bg-lime-50">
                             <p class="font-semibold text-green-500">Suhu</p>
-                            <p class="mt-2 text-4xl font-bold text-green-600">13%</p>
+                            <p class="mt-2 text-4xl font-bold text-green-600">{{ $gasData['temperature'] ?? 'N/A' }} °C</p>
                         </div>
-
-                        <!-- Kelembapan -->
                         <div class="col-span-3 p-6 rounded-lg shadow-lg bg-blue-50">
                             <p class="font-semibold text-blue-500">Kelembapan</p>
-                            <p class="mt-2 text-4xl font-bold text-blue-600">20%</p>
+                            <p class="mt-2 text-4xl font-bold text-blue-600">{{ $gasData['humidity'] ?? 'N/A' }}%</p>
                         </div>
-
-                        <!-- Gas Amonia -->
                         <div class="col-span-3 p-6 bg-green-100 rounded-lg shadow-md">
                             <p class="font-semibold text-green-500">Gas Amonia</p>
-                            <p class="mt-2 text-4xl font-bold text-green-600">200</p>
+                            <p class="mt-2 text-4xl font-bold text-green-600">{{ $gasData['amonia'] ?? 'N/A' }} ppm</p>
                         </div>
-                    </div>
+                    @else
+                        <p class="col-span-3 text-red-500">Data tidak tersedia.</p>
+                    @endif
+                </div>
 
                     <div class="container py-10 mx-auto shadow-md ">
                         <div class="px-5 bg-white rounded-lg shadow-inner">
+
                           <div>
                             <canvas id="myChart"></canvas>
                           </div>
@@ -108,6 +105,7 @@
                   </div>
             </div>
         </div>
+
     </body>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
