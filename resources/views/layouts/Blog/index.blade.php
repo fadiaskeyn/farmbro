@@ -28,7 +28,7 @@
                             <td class="px-4 py-2 text-center border-r">{{ $key + 1 }}</td>
                             <td class="px-4 py-2 border-r">{{ $blog->title }}</td>
                             <td class="px-4 py-2 text-center border-r">{{ $blog->created_at->format('Y-m-d') }}</td>
-                            <td class="px-4 py-2 border-r">{{ Str::limit($blog->description, 50, '...') }}</td>
+                            <td class="px-4 py-2 border-r">{!! Str::limit($blog->description, 50, '...') !!}</td>
                             <td class="px-4 py-2 text-center border-r">
                                 @if ($blog->images)
                                     <img src="{{ asset('storage/' . $blog->images) }}" alt="Gambar Blog" class="object-cover w-20 h-20 rounded">
