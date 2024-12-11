@@ -26,6 +26,7 @@ class User extends Authenticatable
         'photo'
     ];
 
+
     /**
      * The attributes that should be hidden for serialization.
      *

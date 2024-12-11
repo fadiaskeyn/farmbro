@@ -1,41 +1,98 @@
-<div id="modal-worker" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Tambah Pengguna
-                </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="modal-worker">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
+<x-app-layout>
+    <div class="container p-8 mx-auto">
+        <h2 class="mb-6 text-2xl font-bold text-blue-600">Tambah Karyawan</h2>
+
+        <!-- Form Tambah Karyawan -->
+        <form action="{{ route('worker.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <!-- Input Nama -->
+            <div class="flex flex-col space-y-2">
+                <label for="name" class="font-medium text-gray-700">Nama</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan Nama"
+                    required>
+            </div>
+
+            <!-- Input Email -->
+            <div class="flex flex-col space-y-2">
+                <label for="email" class="font-medium text-gray-700">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan Email"
+                    required>
+            </div>
+
+            <!-- Input No HP -->
+            <div class="flex flex-col space-y-2">
+                <label for="phone" class="font-medium text-gray-700">No HP</label>
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan No HP"
+                    required>
+            </div>
+
+            <!-- Input Password -->
+            <div class="flex flex-col space-y-2">
+                <label for="password" class="font-medium text-gray-700">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan Password"
+                    required>
+            </div>
+
+            <!-- Input Foto -->
+            <div class="flex flex-col space-y-2">
+                <label for="photo" class="font-medium text-gray-700">Foto</label>
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    accept="image/*">
+                <span class="text-sm text-gray-500">Format yang didukung: jpg, png, jpeg (maksimal 2MB)</span>
+            </div>
+            <div class="flex justify-end">
+                <button type="submit" class="px-6 py-3 text-white bg-green-500 rounded-md hover:bg-green-600">
+                    Simpan
                 </button>
             </div>
-            <!-- Modal body -->
-            <form action="{{ route('worker.store') }}" class="p-4 md:p-5">
-                @csrf
-                <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" requ placeholder="Nama">
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Email">
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <input type="number" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="No Hp">
-                    </div>
-                    <div class="col-span-2">
-                        <input type="text" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="password">
-                    </div>
-                </div>
-                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Submit
-                </button>
-            </form>
-        </div>
+        </form>
     </div>
-</div>
+
+    <!-- Tambahkan SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session("success") }}',
+            confirmButtonText: 'OK'
+        });
+    @endif
+
+    @if (session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: '{{ session("error") }}',
+            confirmButtonText: 'Coba Lagi'
+        });
+    @endif
+</script>
+
+</x-app-layout>
