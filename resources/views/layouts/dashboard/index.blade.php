@@ -35,18 +35,19 @@
                         <span>Pekerja</span>
                     </a>
                 </li>
-                {{-- <li class="mb-4">
-                    <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
-                        <img class="w-6 h-6 mr-2" src="{{ asset('image/chart.svg') }}" alt="Laporan Icon">
-                        <span>Laporan</span>
-                    </a>
-                </li> --}}
                 <li class="mb-4">
                     <a href="{{ route ('bloging.index')}}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                         <img class="w-6 h-6 mr-2" src="{{ asset('image/blog.svg') }}" alt="Blog Icon">
                         <span>Blog</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('video.index') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+                        <img class="w-6 h-6 mr-2" src="{{ asset('image/loupe.png') }}" alt="Laporan Icon">
+                        <span>Deteksi</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- Main Content -->
@@ -63,33 +64,24 @@
                 @endif
 
                 <main>
-
                     <div class="grid grid-cols-12 gap-4">
-                        @if (isset($chickData) && !empty($chickData))
                         <div class="col-span-3 p-4 bg-red-100 rounded-lg">
                             <p class="font-semibold text-red-700">Total Ayam</p>
-                            <p class="mt-2 text-4xl font-bold text-red-700">{{ $chickData['amount'] ?? 'N/A' }}</p>
+                            <p id="total-ayam" class="mt-2 text-4xl font-bold text-red-700">wait....</p>
                         </div>
-                        @endif
-
-                        @if (isset($gasData) && !empty($gasData))
                         <div class="col-span-3 p-4 rounded-lg bg-lime-50">
                             <p class="font-semibold text-green-500">Suhu</p>
-                            <p class="mt-2 text-4xl font-bold text-green-600">{{ $gasData['temperature'] ?? 'N/A' }} °C</p>
+                            <p id="suhu" class="mt-2 text-4xl font-bold text-green-600">wait....</p>
                         </div>
                         <div class="col-span-3 p-6 rounded-lg shadow-lg bg-blue-50">
                             <p class="font-semibold text-blue-500">Kelembapan</p>
-                            <p class="mt-2 text-4xl font-bold text-blue-600">{{ $gasData['humidity'] ?? 'N/A' }}%</p>
+                            <p id="kelembapan" class="mt-2 text-4xl font-bold text-blue-600">wait....</p>
                         </div>
                         <div class="col-span-3 p-6 bg-green-100 rounded-lg shadow-md">
                             <p class="font-semibold text-green-500">Gas Amonia</p>
-                            <p class="mt-2 text-4xl font-bold text-green-600">{{ $gasData['amonia'] ?? 'N/A' }} ppm</p>
+                            <p id="gas-amonia" class="mt-2 text-4xl font-bold text-green-600">wait....</p>
                         </div>
-                        @else
-                        <p class="col-span-3 text-red-500">Data tidak tersedia.</p>
-                        @endif
                     </div>
-
                     <!-- Chart -->
                     <div class="container py-10 mx-auto shadow-md">
                         <div class="px-5 bg-white rounded-lg shadow-inner">
@@ -97,6 +89,7 @@
                         </div>
                     </div>
                 </main>
+
             </div>
             <div class="flex justify-between mx-8 mt-4 mb-4 text-gray-600">
                 <span>FARMBRO</span>
@@ -104,78 +97,45 @@
             </div>
         </div>
     </div>
-
-    {{-- <script>
-        async function fetchData() {
-            try {
-                const response = await fetch('https://farmbro-mbkm.research-ai.my.id/api/gas');
-                const apiResponse = await response.json();
-
-                if (apiResponse.status === 200 && apiResponse.data) {
-                    const data = apiResponse.data;
-                    return {
-                        labels: ['Temperature', 'Humidity', 'Ammonia'],
-                        values: [data.temperature, data.humidity, data.amonia],
-                        createdAt: new Date(data.created_at).toLocaleString()
-                    };
-                } else {
-                    console.error("Invalid API response:", apiResponse);
-                    return { labels: [], values: [], createdAt: '' };
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                return { labels: [], values: [], createdAt: '' };
-            }
-        }
-
-        async function createChart() {
-            const ctx = document.getElementById('myChart').getContext('2d');
-            const apiData = await fetchData();
-
-            if (apiData.labels.length === 0) {
-                console.error("No data available for the chart");
-                return;
-            }
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: apiData.labels,
-                    datasets: [{
-                        label: `Sensor Data (${apiData.createdAt})`,
-                        data: apiData.values,
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(255, 99, 132, 0.5)'
-                        ],
-                        borderColor: [
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: true, position: 'top' }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Values' }
-                        },
-                        x: {
-                            title: { display: true, text: 'Parameters' }
-                        }
-                    }
-                }
-            });
-        }
-
-        createChart();
-    </script> --}}
 </body>
 </html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    async function ayam() {
+        const response = await axios.get('http://localhost:8000/api/chick');
+
+        if (response.data.status === 200) {
+            const data = response.data.data;
+            document.getElementById('total-ayam').textContent = `${data.amount}`;
+        } else {
+            console.error("Error fetching data:", response.data.message);
+        }
+    }
+    // Fungsi untuk fetch data dari API
+    async function fetchData() {
+        try {
+            const response = await axios.get('http://localhost:8000/api/gas');
+
+            if (response.data.status === 200) {
+                const data = response.data.data;
+
+                // Update elemen HTML dengan data yang diterima
+                document.getElementById('total-ayam').textContent = "15"; // Ganti dengan data relevan jika ada
+                document.getElementById('suhu').textContent = `${data.temperature} °C`;
+                document.getElementById('kelembapan').textContent = `${data.humidity} %`;
+                document.getElementById('gas-amonia').textContent = `${data.amonia} ppm`;
+            } else {
+                console.error("Error fetching data:", response.data.message);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    // Panggil fungsi fetch data saat halaman dimuat
+    fetchData();
+    ayam();
+</script>
+

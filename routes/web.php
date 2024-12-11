@@ -6,6 +6,8 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landingpage;
 use App\Http\Controllers\GasController;
+use App\Http\Controllers\VideoController;
+
 
 
 
@@ -59,3 +61,7 @@ Route::get('/contact', [Landingpage::class, 'contact']) ->name('contact');
 Route::get('/layanan', [Landingpage::class, 'layanan'])->name('layanan');
 Route::get('/blog/{id}', [Landingpage::class, 'show'])->name('blog.show');
 
+
+Route::get('/vidio', [VideoController::class, 'index'])->name('video.index');
+Route::post('/upload', [VideoController::class, 'uploadVideo'])->name('video.upload');
+Route::post('/update-cage-area', [VideoController::class, 'updateCageArea'])->name('video.updateCageArea');

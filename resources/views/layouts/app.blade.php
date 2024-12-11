@@ -33,16 +33,17 @@
                             <span>Pekerja</span>
                         </a>
                     </li>
-                    {{-- <li>
-                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
-                            <img class="w-6 h-6 mr-2" src="{{ asset('image/chart.svg') }}" alt="Laporan Icon">
-                            <span>Laporan</span>
-                        </a>
-                    </li> --}}
+
                     <li class="mb-4">
                         <a href="{{ route('bloging.index') }}" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
                             <img class="w-6 h-6 mr-2" src="{{ asset('image/blog.svg') }}" alt="Blog Icon">
                             <span>Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-sm font-medium rounded hover:bg-brown-500">
+                            <img class="w-6 h-6 mr-2" src="{{ asset('image/loupe.png') }}" alt="Laporan Icon">
+                            <span>Deteksi</span>
                         </a>
                     </li>
                 </ul>

@@ -59,6 +59,52 @@ class GasApiController extends Controller
         ]);
     }
 
+    public function chart()
+    {
+        $oneHourAgo = Carbon::now()->subHour();
+
+        // Ambil rata-rata data dari satu jam terakhir
+        $recentData = DB::table('gases')
+            ->select(
+                DB::raw('AVG(amonia) as avg_amonia'),
+                DB::raw('AVG(humidity) as avg_humidity'),
+                DB::raw('AVG(temperature) as avg_temperature')
+            )
+            ->where('created_at', '>=', $oneHourAgo)
+            ->first();
+
+        if ($recentData->avg_amonia === null || $recentData->avg_humidity === null || $recentData->avg_temperature === null) {
+            // Jika tidak ada data, buat dummy dari data historis sebelumnya
+            $historicalData = DB::table('gases')
+                ->select(
+                    DB::raw('AVG(amonia) as avg_amonia'),
+                    DB::raw('AVG(humidity) as avg_humidity'),
+                    DB::raw('AVG(temperature) as avg_temperature')
+                )
+                ->get();
+
+            $dummyData = [
+                'humidity' => round($historicalData[0]->avg_humidity ?? 50, 1),
+                'temperature' => round($historicalData[0]->avg_temperature ?? 24, 1),
+                'amonia' => round($historicalData[0]->avg_amonia ?? 9, 1),
+            ];
+        } else {
+            // Jika ada data, gunakan data rata-rata dari satu jam terakhir
+            $dummyData = [
+                'humidity' => round($recentData->avg_humidity, 1),
+                'temperature' => round($recentData->avg_temperature, 1),
+                'amonia' => round($recentData->avg_amonia, 1),
+            ];
+        }
+
+        return response()->json([
+            'status' => 200,
+            'data' => $dummyData
+        ]);
+    }
+
+
+
 
 
 }

@@ -27,6 +27,7 @@ Route::post('/logout', [AuthApiController::class,'logout']);
 
 Route::get('/gas', [GasApiController::class,'dashboard']);
 Route::post('/gas/store', [GasApiController::class, 'store']);
-Route::get('/average',[GasApiController::class,'average']);
 Route::post('/chick/store',[ChickController::class,'store']);
 Route::get('/chick', [ChickController::class,'index']);
+Route::get('/average',[GasApiController::class,'average']);
+Route::get('/chartaverage',[GasApiController::class,'chart']);
