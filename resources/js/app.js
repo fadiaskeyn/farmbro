@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         try {
             // Fetch data from the API
             const response = await axios.get('http://localhost:8000/api/chartaverage');
-
-            // Check if the response status is OK
             if (response.status === 200 && response.data?.data) {
                 const { humidity, temperature, amonia } = response.data.data;
 
@@ -25,21 +23,21 @@ document.addEventListener('DOMContentLoaded', async function () {
                         labels: ['Suhu', 'Kelembapan', 'Amonia'],
                         datasets: [{
                             label: 'Rata-Rata Data 1 Jam Terakhir',
-                            data: [temperature, humidity, amonia], // Use fetched data
+                            data: [temperature, humidity, amonia],
                             backgroundColor: [
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)'
+                                'rgba(75, 192, 192, 0.5)',  // Suhu
+                                'rgba(54, 162, 235, 0.5)',  // Kelembapan (diubah menjadi biru)
+                                'rgba(255, 159, 64, 0.5)'   // Amonia
                             ],
                             hoverBackgroundColor: [
-                                'rgba(75, 192, 192, 0.7)',
-                                'rgba(153, 102, 255, 0.7)',
-                                'rgba(255, 159, 64, 0.7)'
+                                'rgba(75, 192, 192, 0.7)',  // Suhu
+                                'rgba(54, 162, 235, 0.7)',  // Kelembapan (diubah menjadi biru)
+                                'rgba(255, 159, 64, 0.7)'   // Amonia
                             ],
                             borderColor: [
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
+                                'rgba(75, 192, 192, 1)',    // Suhu
+                                'rgba(54, 162, 235, 1)',    // Kelembapan (diubah menjadi biru)
+                                'rgba(255, 159, 64, 1)'     // Amonia
                             ],
                             borderWidth: 1
                         }]
