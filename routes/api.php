@@ -31,3 +31,8 @@ Route::post('/chick/store',[ChickController::class,'store']);
 Route::get('/chick', [ChickController::class,'index']);
 Route::get('/average',[GasApiController::class,'average']);
 Route::get('/chartaverage',[GasApiController::class,'chart']);
+
+
+// Route::get('/apiUser', [AuthApiController::class, 'me']);
+// Route::get('/test', [AuthApiController::class, 'getData']);
+

@@ -51,7 +51,7 @@ def process_video(video_path, model_path, output_path, progress_file):
     model = load_model(model_path)
 
     total_chickens = 0
-    previous_chickens = 0  # Menyimpan jumlah ayam dari frame sebelumnya
+    previous_chickens = 0
     frame_index = 0
 
     # Process each frame

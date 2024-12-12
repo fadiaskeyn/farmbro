@@ -25,19 +25,19 @@ document.addEventListener('DOMContentLoaded', async function () {
                             label: 'Rata-Rata Data 1 Jam Terakhir',
                             data: [temperature, humidity, amonia],
                             backgroundColor: [
-                                'rgba(75, 192, 192, 0.5)',  // Suhu
-                                'rgba(54, 162, 235, 0.5)',  // Kelembapan (diubah menjadi biru)
-                                'rgba(255, 159, 64, 0.5)'   // Amonia
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)'
                             ],
                             hoverBackgroundColor: [
-                                'rgba(75, 192, 192, 0.7)',  // Suhu
-                                'rgba(54, 162, 235, 0.7)',  // Kelembapan (diubah menjadi biru)
-                                'rgba(255, 159, 64, 0.7)'   // Amonia
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)'
                             ],
                             borderColor: [
-                                'rgba(75, 192, 192, 1)',    // Suhu
-                                'rgba(54, 162, 235, 1)',    // Kelembapan (diubah menjadi biru)
-                                'rgba(255, 159, 64, 1)'     // Amonia
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)',
+                                'rgba(217, 217, 217, 1)',
                             ],
                             borderWidth: 1
                         }]

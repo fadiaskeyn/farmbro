@@ -37,9 +37,8 @@ class AuthApiController extends Controller
 
 
 
-public function updateprofile(Request $request)
-{
-    // Langkah 1: Validasi Input
+public function updateprofile(Request $request) {
+
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users,email,' . Auth::id(),
@@ -95,5 +94,18 @@ public function logout(Request $request)
         'message' => 'Logout berhasil.'
     ], 200);
 }
+
+    public function me(){
+        $user = Auth::user();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        return response()->json(['message' => 'success', 'data' => $user], 200);
+    }
+    public function getData()
+    {
+        $data = User::all();
+        return response()->json($data);
+    }
 
 }

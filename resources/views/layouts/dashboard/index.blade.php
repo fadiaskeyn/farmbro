@@ -65,10 +65,10 @@
 
                 <main>
                     <div class="grid grid-cols-12 gap-4">
-                        <div class="col-span-3 p-4 bg-red-100 rounded-lg">
+                        {{-- <div class="col-span-3 p-4 bg-red-100 rounded-lg">
                             <p class="font-semibold text-red-700">Total Ayam</p>
                             <p id="total-ayam" class="mt-2 text-4xl font-bold text-red-700">wait....</p>
-                        </div>
+                        </div> --}}
                         <div class="col-span-3 p-4 rounded-lg bg-lime-50">
                             <p class="font-semibold text-green-500">Suhu</p>
                             <p id="suhu" class="mt-2 text-4xl font-bold text-green-600">wait....</p>
@@ -122,7 +122,7 @@
                 const data = response.data.data;
 
                 // Update elemen HTML dengan data yang diterima
-                document.getElementById('total-ayam').textContent = "15"; // Ganti dengan data relevan jika ada
+                // document.getElementById('total-ayam').textContent = "15"; // Ganti dengan data relevan jika ada
                 document.getElementById('suhu').textContent = `${data.temperature} °C`;
                 document.getElementById('kelembapan').textContent = `${data.humidity} %`;
                 document.getElementById('gas-amonia').textContent = `${data.amonia} ppm`;
@@ -136,6 +136,6 @@
 
     // Panggil fungsi fetch data saat halaman dimuat
     fetchData();
-    ayam();
+    // ayam();
 </script>
 
