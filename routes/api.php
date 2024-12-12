@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\GasApiController;
 use App\Http\Controllers\api\AuthApiController;
 use App\Http\Controllers\api\ChickController;
+use App\Http\Controllers\GasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,12 @@ Route::get('/chick', [ChickController::class,'index']);
 Route::get('/average',[GasApiController::class,'average']);
 Route::get('/chartaverage',[GasApiController::class,'chart']);
 
+// <<<<<<< HEAD
 
-// Route::get('/apiUser', [AuthApiController::class, 'me']);
-// Route::get('/test', [AuthApiController::class, 'getData']);
+// // Route::get('/apiUser', [AuthApiController::class, 'me']);
+// // Route::get('/test', [AuthApiController::class, 'getData']);
+
+// =======
+Route::get('/lamp/status', [GasController::class,'lamp']);
+Route::post('/lamp/update',[GasController::class,'lampupdate']);
 
